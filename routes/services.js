@@ -1,23 +1,25 @@
 var express = require('express');
 var router = express.Router();
+var USER = require("../database/user");
 
 /* GET home page. */
 router.get('/usuario', (req, res, next) => {
-  var datos = req.query;
-  var name = datos.name;
-  console.log(datos);
-  console.log(name);
-  res.status(200).json({
-    msn: "HOLA MUNDO"
-  });
+ USER.find({}, (err, docs) => {
+  res.status(200).json(docs);
+ });
 });
 router.post("/usuario", (req, res) => {
-  var datos= req.body;
-  datos["timeserver"] = new Date();
-  datos["method"] = "POST";
-  console.log(datos);
-  res.status(200).json(datos);
-
+  var datos = req.body;
+  var typemusic = datos.music.split(",");
+  var user = {};
+  user["name"] = datos.name;
+  user["lastname"] = datos.lastname;
+  user["date"] = new Date();
+  user["typemusic"] = typemusic;
+  var newuser = new USER(user);
+  newuser.save().then(() => {
+    res.status(200).json({"msn" : "Usuario registrado"}); 
+  });
 });
 
 router.put("/usuario", (req, res) => {
