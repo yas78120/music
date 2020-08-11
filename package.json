@@ -1,5 +1,5 @@
 {
-  "name": "dokerizenodemongo",
+  "name": "music",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -16,5 +16,21 @@
     "morgan": "~1.9.0",
     "music-metadata": "^7.0.1",
     "sha1": "^1.1.1"
-  }
+  },
+  "description": "sistema de gention de musicas",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yas78120/music.git"
+  },
+  "keywords": [
+    "8516425yas"
+  ],
+  "author": "oliver",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yas78120/music/issues"
+  },
+  "homepage": "https://github.com/yas78120/music#readme"
 }
